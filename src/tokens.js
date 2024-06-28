@@ -1,6 +1,7 @@
 // src/tokens.js
 export const semanticTokens = {
     colors: {
+
       primary: '#FF0000',
       secondary: '#28A745',
       contrast: '#333333',
@@ -52,6 +53,26 @@ export const semanticTokens = {
     checkboxDisabled: '#BDBDBD',
     checkboxInvalid: '#FF0000',
     checkboxHover: '#757575',
+      backgroundNewsletter: '#FFFD06',
+      successPrimary: '#409F6B',
+      successSecondary: '#D4EADE',
+      brandPrimary: '#D9353B',
+      brandSecondary: '#FF8286',
+      redLight: '#FFEAEB',
+      bgDark: '#262626',
+      bgTertiary: '#BDBDBD',
+      bgSecondary: '#F2F2F2',
+      bg: '#FFFFFF',
+      neutral300: '#262626',
+      neutral200: '#BDBDBD',
+      neutral100: '#F2F2F2',
+      neutral000: '#FFFFFF',
+      green200: '#409F6B',
+      green100: '#D4EADE',
+      yellow100: '#FFFD06',
+      red100: '#FFEAEB',
+      red200: '#FF8286',
+      red300: '#D9353B',
     },
     fonts: {
       body: 'Helvetica, Arial, sans-serif',
@@ -96,7 +117,7 @@ export const semanticTokens = {
       md: '16px',
       lg: '24px',
       xl: '32px',
-      toggleGap: '2px',  // New spacing for toggle switch
+      toggleGap: '2px',  
     },
     borderRadius: '4px',
   

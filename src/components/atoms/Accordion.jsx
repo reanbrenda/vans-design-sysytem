@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { space, color, typography, layout, border } from 'styled-system';
 import Box from './Box';
@@ -27,22 +27,14 @@ const AccordionContent = styled(Box)`
   ${color}
 `;
 
-const Accordion = ({ title, children, isOpen: controlledIsOpen, toggleAccordion: controlledToggleAccordion, ...props }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const isControlled = controlledIsOpen !== undefined && controlledToggleAccordion !== undefined;
-
+const Accordion = ({ title, isOpen, toggleAccordion, children, ...props }) => {
   return (
     <AccordionWrapper {...props}>
-      <AccordionHeader onClick={isControlled ? controlledToggleAccordion : toggleAccordion} color="textPrimary">
+      <AccordionHeader onClick={toggleAccordion}>
         <Text variant="label">{title}</Text>
-        <Text variant="label">{isControlled ? (controlledIsOpen ? '▲' : '▶') : (isOpen ? '▲' : '▶')}</Text>
+        <Text variant="label">{isOpen ? '▲' : '▶'}</Text>
       </AccordionHeader>
-      <AccordionContent isOpen={isControlled ? controlledIsOpen : isOpen} color="textSecondary">
+      <AccordionContent isOpen={isOpen} color="textSecondary">
         {children}
       </AccordionContent>
     </AccordionWrapper>
@@ -50,5 +42,4 @@ const Accordion = ({ title, children, isOpen: controlledIsOpen, toggleAccordion:
 };
 
 export default Accordion;
-
 

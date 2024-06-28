@@ -14,7 +14,7 @@ const StyledInput = styled.input`
 
   &:focus {
     outline: none;
-    border-color: ${props => props.theme.colors.primary};
+    border-color: ${props => props.theme.colors.neutral300};
   }
 
   &:disabled {

@@ -17,7 +17,7 @@ const ModalOverlay = styled(Box)`
 `;
 
 const ModalContent = styled(Box)`
-  background: ${props => props.theme.colors.background};
+  background: ${props => props.theme.colors.cardBackground};
   padding: ${props => props.theme.spacing.lg};
   border-radius: ${props => props.theme.borderRadius};
   max-width: 500px;
@@ -32,24 +32,30 @@ const CloseButton = styled(Box)`
   cursor: pointer;
 `;
 
-const Button = styled.button`
-  margin-right: ${props => props.theme.spacing.md};
+const Button = styled(Box).attrs({ as: 'button' })`
+  margin-bottom: ${props => props.theme.spacing.md};
   &:last-child {
-    margin-right: 0;
+    margin-bottom: 0;
   }
+  border: none;
+  border-radius: ${props => props.theme.borderRadius};
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.textSecondary};
+  cursor: pointer;
 `;
 
-const Modal = ({ title, children, onClose, primaryButtonText, secondaryButtonText, primaryButtonAction, secondaryButtonAction, centerButtons, ...props }) => (
+const Modal = ({ title, children, onClose, primaryButtonText, secondaryButtonText, primaryButtonAction, secondaryButtonAction, centerContent, ...props }) => (
   <ModalOverlay>
     <ModalContent {...props}>
       <CloseButton onClick={onClose}>
         <FaTimes />
       </CloseButton>
-      <Text variant="h5" mb={4}>{title}</Text>
-      <Box mb={4}>
+      <Text as="h5" mb={4} textAlign={centerContent ? 'center' : 'left'}>{title}</Text>
+      <Box mb={4} textAlign={centerContent ? 'center' : 'left'}>
         {children}
       </Box>
-      <Box display="flex" justifyContent={centerButtons ? 'center' : 'space-between'}>
+      <Box display="flex" flexDirection="column" alignItems="stretch">
         {primaryButtonText && <Button onClick={primaryButtonAction}>{primaryButtonText}</Button>}
         {secondaryButtonText && <Button onClick={secondaryButtonAction}>{secondaryButtonText}</Button>}
       </Box>
